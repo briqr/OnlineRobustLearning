@@ -23,7 +23,3 @@ for line in open(file_str):
     print line
 
     url_str = line.split('\t')
-    print len(url_str)
-    #u = url_str[2].decode('ISO-8859-1')
-    #print u
-    #break

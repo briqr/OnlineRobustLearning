@@ -25,11 +25,9 @@ for line in open(label_file):
     for label in target_features:
         if label in tags_str:
             feature_photosid_map[label].add(photo_id)
-    #if(i==1000):
-    #    break        
+      
     i += 1
 
-#print feature_photosid_map
 
 
 for f_id in range(100):
@@ -42,13 +40,11 @@ for f_id in range(100):
     
     for line in open(current_feature_filename):
         photo_id = line.strip().split("\t")[0]
-        #print 'photo_id', photo_id
         k = 0
         for label in target_features:
             if photo_id in feature_photosid_map[label]:
                 print 'found', photo_id
                 target_fileoutputs[k].write(line + '\n')
             k = k+1
-        #if(i==10000):
-        #    break
+
         i += 1

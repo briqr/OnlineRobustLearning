@@ -10,8 +10,8 @@ import os.path
 
 file_str = '/media/datasets/flickr/yfcc100m_dataset'
 i = 0
-key = 'bfebdc12c8a54772e3a7582668ee636c'
-secret = '526e1000330cb7d3'
+key = 'your_key'
+secret = 'your_secret'
 flickr = flickrapi.FlickrAPI(key, secret)
 
 for line in open(file_str):
@@ -20,10 +20,8 @@ for line in open(file_str):
     url_str = re.split(r'\t+', line)
     photo_id1 = int(url_str[1])
     if(os.path.exists('/media/datasets/flickr/images/'+str(photo_id1)+'.jpg')):
-        print 'exists'
         continue
-    
-    #url_str = url_str[len(url_str)-3]
+   
     print '****', photo_id1
     try:
         a = flickr.photos_getSizes(api_key=key, photo_id=photo_id1)
@@ -37,11 +35,9 @@ for line in open(file_str):
             print 'retrieved'
         l += 1
         
-    #print '---', a.getchildren() #a.get('stat')[0]
-    #if(i==5):
-    #    break
+
     i += 1
-    #flickr.photos_getSizes(k_id = id)
+
     
 
 
