@@ -57,10 +57,6 @@ public class FlickrReaderSingleLabel extends InputStream {
 
 		randomProjection = new RandomProjection(totalNumFeatures, Parameters.DATA_LENGTH, true);
 
-		/*
-		 * for (int i =0; i< 4096; i++) { int rnd = list.get(i);
-		 * randomFeatures.add(rnd); }
-		 */
 
 	}
 
@@ -123,8 +119,7 @@ public class FlickrReaderSingleLabel extends InputStream {
 				}
 			}
 
-			// currentSample[currentSample.length-1] = target;
-			// System.out.println("correct" + labelsStr[0] + ":" + features[0]);
+			
 			for (int i = 0; i < totalNumFeatures; i++) {
 				
 				currentSample[i] = (Double.parseDouble(features[i + offset])) / scale;

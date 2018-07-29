@@ -74,22 +74,14 @@ public class FlickrReader extends InputStream {
 
 		this(filename);
 		this.scale = scale;
-		// Parameters.DATA_LENGTH = 40;
-		// Parameters.numNodes = (int) Math.pow(Parameters.DATA_LENGTH + 3,
-		// Parameters.height);
+		
 		Parameters.batchSize = Parameters.numNodes * Parameters.batchMult;
 
-		/*
-		 * this.scale = scale; try { br = new BufferedReader( new InputStreamReader( new
-		 * GZIPInputStream( new FileInputStream(filename)))); } catch(Exception e) {
-		 * System.out.println(e.getMessage()); }
-		 */
 	}
 
 	@Override
 	public double[] nextExample() {
-		//if(numSamples %100000==0)
-			//System.out.println(numSamples + ", positive samples" + numPosSamples);
+
 		double[] currentSample = new double[totalNumFeatures]; // no projection new double[totalNumFeatures+1]; 
 		double [] projectedSample = null;
 		String row;
@@ -105,18 +97,14 @@ public class FlickrReader extends InputStream {
 				
 					features = row.split("(\\s)+");
 					
-				
-					//System.out.println("photo label found");
 					if(targetLabels.contains(features[0])) {
-						//System.out.println("found target features");
-						//currentSample[Parameters.DATA_LENGTH] = 1.0;
+						
 						target = 1.0;
 						++numPosSamples;
 						break;
 					} else {
 						double prob = random.nextDouble();
 						if (prob <0.02 && numNegSamples <numPosSamples+50 ) {//0.018) {//0.025) { // include this negative example
-							//currentSample[Parameters.DATA_LENGTH] = 0.0;
 							++numNegSamples;
 							target = 0.0;
 							break;
@@ -124,8 +112,7 @@ public class FlickrReader extends InputStream {
 							continue;
 					}
 			}
-				//currentSample[currentSample.length-1] = target;
-				//System.out.println("correct" + labelsStr[0] + ":"  + features[0]);
+				
 				for (int i =0 ;i <totalNumFeatures; i++) {
 					scale = 1000;
 					currentSample[i] = (Double.parseDouble(features[i+2])) / scale;
