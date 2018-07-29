@@ -10,8 +10,6 @@ import bisect
 
 file_str = '/media/datasets/flickr/yfcc100m_dataset'
 i = 0
-key = 'bfebdc12c8a54772e3a7582668ee636c'
-secret = '526e1000330cb7d3'
 flickr = flickrapi.FlickrAPI(key, secret)
 tag_counts = dict()
 num_most_recurrent = 200
