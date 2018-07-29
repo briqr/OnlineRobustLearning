@@ -35,8 +35,8 @@ import learning.example.Parameters;
 		 * 
 		 */
 		private static final long serialVersionUID = 1436768541164539157L;
-		private static final double epsilon = 0.0001;
-		private static final double max_rel_epsilon = 0.000001;
+		private static final double epsilon = 0.001;
+		private static final double max_rel_epsilon = 0.0001;
 		private int numSync = 0;
 		private int treeHeight = 5;
 		private static Random random = new Random();
